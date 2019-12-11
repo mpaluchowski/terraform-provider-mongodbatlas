@@ -44,6 +44,7 @@ func Provider() terraform.ResourceProvider {
 			"mongodbatlas_network_peerings":                     dataSourceMongoDBAtlasNetworkPeerings(),
 			"mongodbatlas_cloud_provider_snapshot_restore_job":  dataSourceMongoDBAtlasCloudProviderSnapshotRestoreJob(),
 			"mongodbatlas_cloud_provider_snapshot_restore_jobs": dataSourceMongoDBAtlasCloudProviderSnapshotRestoreJobs(),
+			"mongodbatlas_global_cluster_config":                dataSourceMongoDBAtlasGlobalCluster(),
 		},
 
 		ResourcesMap: map[string]*schema.Resource{
