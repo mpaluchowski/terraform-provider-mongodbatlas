@@ -55,16 +55,6 @@ type AtlasUserAssigned struct {
 	TotalCount int         `json:"totalCount"`
 }
 
-type AtlasUser struct {
-	EmailAddress string      `json:"emailAddress"`
-	FirstName    string      `json:"firstName"`
-	ID           string      `json:"id"`
-	LastName     string      `json:"lastName"`
-	Roles        []AtlasRole `json:"roles"`
-	TeamIds      []string    `json:"teamIds"`
-	Username     string      `json:"username"`
-}
-
 type TeamUpdateRoles struct {
 	RoleNames []string `json:"roleNames"`
 }
@@ -193,7 +183,7 @@ func (s *TeamsServiceOp) Create(ctx context.Context, orgID string, createRequest
 		return nil, nil, NewArgError("createRequest", "cannot be nil")
 	}
 
-	req, err := s.client.NewRequest(ctx, http.MethodPost, fmt.Sprintf(dbUsersBasePath, orgID), createRequest)
+	req, err := s.client.NewRequest(ctx, http.MethodPost, fmt.Sprintf(teamsBasePath, orgID), createRequest)
 	if err != nil {
 		return nil, nil, err
 	}
